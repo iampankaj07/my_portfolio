@@ -1,4 +1,7 @@
 // import React from 'react';
+import { FaEnvelope, FaGithub, FaLink, FaLinkedin } from 'react-icons/fa';
+import profileImage from '../assets/profile.jpg'; // Adjust path if necessary
+
 
 const Hero = () => {
   return (
@@ -21,16 +24,29 @@ const Hero = () => {
             </p>
             <div className="flex space-x-4 justify-center md:justify-start">
             <div className="flex space-x-4 justify-center md:justify-start">
-  <a href="https://github.com/pankajdulal" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-    GitHub
-  </a>
-  <a href="https://linkedin.com/in/pankajdulal" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-    LinkedIn
-  </a>
-  <a href="mailto:contact@pankajdulal.com" className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-    Mail
-  </a>
-</div>
+              <a
+                href="https://github.com/pankajdulal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              >
+                <FaGithub size={24} />
+              </a>
+              <a
+                href="https://linkedin.com/in/pankajdulal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              >
+                <FaLinkedin size={24} />
+              </a>
+              <a
+                href="mailto:contact@pankajdulal.com"
+                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              >
+                <FaEnvelope size={24} />
+              </a>
+            </div>
 
             </div>
           </div>
@@ -38,9 +54,11 @@ const Hero = () => {
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary">
                 <img
-                  src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=800"
+                
+                 src={profileImage}
                   alt="Pankaj Dulal"
                   className="w-full h-full object-cover"
+                  style={{ objectFit: 'cover' }}
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary rounded-full opacity-20"></div>
