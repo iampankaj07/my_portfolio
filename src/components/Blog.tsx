@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaCalendar, FaClock } from "react-icons/fa";
-import { fetchBlogPosts } from "../blogService";
+import { fetchBlogPosts } from "../services/blogService";
 
 // Define types for BlogPost
 interface BlogPost {
@@ -20,6 +20,7 @@ const Blog = () => {
 
   useEffect(() => {
     const getPosts = async () => {
+      
       try {
         const data = await fetchBlogPosts();
 

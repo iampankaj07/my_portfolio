@@ -1,5 +1,5 @@
 // src/blogService.ts
-import { db } from "./firebaseConfig";
+import { db } from "../firebaseConfig";
 import { collection, getDocs, DocumentData } from "firebase/firestore";
 
 interface BlogPost {
