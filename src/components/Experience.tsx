@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBriefcase } from "react-icons/fa";
 import { getExperiences } from "../services/experienceServices";
 

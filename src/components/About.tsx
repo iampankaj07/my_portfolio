@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaCode, FaMobileAlt, FaRocket } from 'react-icons/fa'; // FontAwesome icons
 import { fetchAboutSections, fetchAboutContent } from '../services/aboutServices'; // Import the service
 

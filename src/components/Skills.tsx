@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getSkills } from "../services/skillsServices"; // Replace with your actual service to get skills
 
 interface Skill {
