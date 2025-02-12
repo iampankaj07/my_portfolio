@@ -1,19 +1,35 @@
-import React, { useState } from 'react';
-import { FaEnvelope, FaMapMarkedAlt, FaPhone } from 'react-icons/fa';
-// import { Mail, Phone, MapPin } from 'lucide-react';
-
+import React, { useState } from "react";
+import { FaEnvelope, FaMapMarkedAlt, FaPhone } from "react-icons/fa";
+import { sendEmail } from "../services/emailServices"; // EmailJS service
+import { saveToFirebase } from "../services/contactServices"; // Firebase service
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setLoading(true);
+    setSuccessMessage("");
+
+    try {
+      // Send email via EmailJS
+      await sendEmail(formData);
+
+      // Save to Firebase Firestore
+      await saveToFirebase(formData);
+
+      setSuccessMessage("Message sent successfully!");
+    } catch (error) {
+      setSuccessMessage("There was an error sending the message.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -36,7 +52,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-medium mb-1">Email</h4>
                   <p className="text-gray-600 dark:text-gray-300">
-                    contact@pankajdulal.com
+                    contact@yourdomain.com
                   </p>
                 </div>
               </div>
@@ -116,10 +132,15 @@ const Contact = () => {
             <button
               type="submit"
               className="w-full bg-primary text-white py-2 px-6 rounded-lg hover:bg-primary/90 transition-colors"
+              disabled={loading}
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
+
+          {successMessage && (
+            <div className="mt-6 text-center text-green-500">{successMessage}</div>
+          )}
         </div>
       </div>
     </section>
